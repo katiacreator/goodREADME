@@ -40,6 +40,7 @@ const questions = [
     name: "Tests",
     type: "input",
     message: "how does the user run tests?"
+    //default: (npm test)
   }
   {
     name: "Usage",
