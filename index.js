@@ -2,7 +2,17 @@ var inquirer = require("inquirer");
 var fs = require("fs");
 var markdown = //link to generatemarkdown.js???
 
-inquirer.prompt([
+inquirer.prompt(questions);
+// .then (answers =>{
+//     return answers;//??
+// it})
+
+const questions = [
+  {
+    name: "Github Username",
+    type: "input",
+    message: "What is your Github username?"
+  },
   {
     name: "Project Title",
     type: "input",
@@ -11,51 +21,40 @@ inquirer.prompt([
   {
     name: "Description",
     type: "input",
-    message: "Please describe this project in 1-2 sentences."
-  },
-  {
-    name: "Table of Contents",//or is it that call these questions are the toc?//
-    type: "list",
-    message: "Please select headings to be included in your table of contents."
-  },
-  {
-    name: "Installation",
-    type: "input",
-    message: "how does the user install this project?"
-  },
-  {
-    name: "Usage",
-    type: "",
-    message: ""
+    message: "Please describe this project briefly (1-2 sentences)."
   },
   {
     name: "License",
     type: "checkbox",
-    message: "Please select a license type for this project"
-    // choices: []
+    message: "What kind of license does your project need?"
+   //choices: ["MIT", "Apache", "GPL", "Bsd"]
   },
+
+    {
+    name: "Dependencies",
+    type: "input",
+    message: "how does the user run installations for dependencies?"
+    //default: (npm i)
+  },
+  {
+    name: "Tests",
+    type: "input",
+    message: "how does the user run tests?"
+  }
+  {
+    name: "Usage",
+    type: "input",
+    message: "What does the user need to know about using this project?"
+  }
   {
     name: "Contributions",
     type: "input",
     message:
-      "Please insert the first and last name of all contributors on this project"
-  },
-  {
-    name: "Tests",
-    type: "",
-    message: ""
-  }
-]);
-// .then (answers =>{
-//     return answers;//??
-// })
-
-const questions = [
-//   "Please insert an img link to your github profile pic",
-//   "Please insert your github username add github icon from git mark folder for visuals"
+      "Please insert any criteria for contributing to this project"
+  }, 
 ];
 
-fs.writeToFile(goodReadME.pdf, data) {///or link to the markdown file??
+fs.writeToFile(sampleReadME.md, answers) {///or link to the markdown file??
     if (err) {
         return console.log(err);
       }
