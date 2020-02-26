@@ -1,5 +1,6 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
+var markdown = //link to generatemarkdown.js???
 
 inquirer.prompt([
   {
@@ -13,14 +14,14 @@ inquirer.prompt([
     message: "Please describe this project in 1-2 sentences."
   },
   {
-    name: "Table of Contents",
+    name: "Table of Contents",//or is it that call these questions are the toc?//
     type: "list",
     message: "Please select headings to be included in your table of contents."
   },
   {
     name: "Installation",
     type: "input",
-    message: "how to install this project?"
+    message: "how does the user install this project?"
   },
   {
     name: "Usage",
@@ -31,6 +32,7 @@ inquirer.prompt([
     name: "License",
     type: "checkbox",
     message: "Please select a license type for this project"
+    // choices: []
   },
   {
     name: "Contributions",
@@ -44,13 +46,22 @@ inquirer.prompt([
     message: ""
   }
 ]);
+// .then (answers =>{
+//     return answers;//??
+// })
 
 const questions = [
-  "Please insert an img link to your github profil pic",
-  "Please insert your github username"
+//   "Please insert an img link to your github profile pic",
+//   "Please insert your github username add github icon from git mark folder for visuals"
 ];
 
-function writeToFile(fileName, data) {}
+fs.writeToFile(goodReadME.pdf, data) {///or link to the markdown file??
+    if (err) {
+        return console.log(err);
+      }
+    
+      console.log("Success!");
+}
 
 function init() {}
 
