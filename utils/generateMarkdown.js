@@ -18,7 +18,8 @@ function generateMarkdown(data) {
 ### ${data.License}
 ## Contributions to this Project
 ### ${data.Contributions}
-####[https://img.shields.io/badge/Version-v1.0-blue]
+![image]${data.badgeUrl}
+
 `;
 }
 
