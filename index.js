@@ -55,9 +55,9 @@ function init() {
     console.log("=======================");
     console.log(answers);
     console.log("=======================");
-    answers = JSON.stringify(answers);
+    // answers = JSON.stringify(answers);
     console.log(answers);
-    ////generate markdown
+    //generate markdown
     var readmeText = generateMD(answers);
     console.log("=======================");
     // console.log(JSON.stringify(readmeText));

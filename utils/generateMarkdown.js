@@ -1,13 +1,20 @@
 function generateMarkdown(data) {
   return `
-# ${data.GithubUsername}
 # ${data.ProjectTitle}
-# ${data.Description}
-# ${data.License}
-# ${data.Dependencies}
-# ${data.Tests}
-# ${data.Usage}
-# ${data.Contributions}
+## *Italic* Insert Link to deployed app here: [Link Title](http://www.samplelink.com)
+## ${data.Description}
+# Table of Contents (Optional)
+##
+# Installation Info
+## ${data.Dependencies}
+# How to Run Tests
+## ${data.Tests}
+# Tips for Using this Project
+## ${data.Usage}
+# License(s)
+## ${data.License}
+# Contributions to this Project
+## ${data.Contributions}
 
 `;
 }
