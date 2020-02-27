@@ -17,14 +17,16 @@ const questions = [
     message: "What is your project title?"
   },
   {
+    name: "deployedUrl",
+    type: "input",
+    message:
+      "Please insert a link for your deployed project. Press enter if not ready for deployment",
+    default: ""
+  },
+  {
     name: "Description",
     type: "input",
     message: "Please describe this project briefly (1-2 sentences)."
-  },
-  {
-    name: "License",
-    type: "input",
-    message: "What kind of license does your project need?"
   },
   {
     name: "Dependencies",
@@ -42,6 +44,21 @@ const questions = [
     name: "Usage",
     type: "input",
     message: "What does the user need to know about using this project?"
+  },
+  {
+    name: "imageUrl",
+    type: "input",
+    message: "Please insert an image/gif/video demo link for your project."
+  },
+  {
+    name: "altImage",
+    type: "input",
+    message: "Press include a description for users that cannot view images"
+  },
+  {
+    name: "License",
+    type: "input",
+    message: "What kind of license does your project need?"
   },
   {
     name: "Contributions",
