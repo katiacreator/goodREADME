@@ -1,8 +1,16 @@
-console.log("*******************");
+const axios = require("axios");
 const api = {
   getUser(username) {
-    console.log(getUser);
-    return username;
+    const queryUrl = `https://api.github.com/users/${username}`;
+    console.log(queryUrl);
+    // AXIOS GOES HERE????
+    axios
+      .get(queryUrl)
+      .then(function(response) {
+        console.log(response.data.avatar_url);
+        return response.data.avatar_url;
+      })
+      .catch(err => console.log(err));
   }
 };
 module.exports = api;

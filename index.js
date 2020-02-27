@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const utils = require("./utils");
-const appendFileAsync = utils.promisify(fs.appendFile);
-//let api = require("./utils/api.js");
+let api = require("./utils/api.js");
 let generateMD = require("./utils/generateMarkdown.js");
 const axios = require("axios");
 
@@ -80,28 +78,16 @@ function init() {
     console.log("=======================");
     console.log(answers);
     console.log("=======================");
-    // answers = JSON.stringify(answers);
     console.log(answers);
     //api call info goes here??
-    // let username = api(answers);
-
-    // const queryUrl = `https://api.github.com/users/${username}`;
-    //console.log(queryUrl);
-    // AXIOS GOES HERE????
-    /*axios
-      .get(queryUrl)
-      .then(function(response) {
-        console.log(response.avatar_url);
-        return response.avatar_url;
-      })
-      .catch(err => console.log(err));*/
+    var username = answers.username;
+    api.getUser(username);
     // let axios = profileImg;
 
     //generate markdown
     let readmeText = generateMD(answers);
     ///////////////let readmeText = `${generateMD(answers)}${axios}`;
     console.log("=======================");
-    // console.log(JSON.stringify(readmeText));
     console.log(readmeText);
     console.log("=======================");
 

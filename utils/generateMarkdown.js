@@ -19,6 +19,8 @@ function generateMarkdown(data) {
 ## Contributions to this Project
 ### ${data.Contributions}
 ![image]${data.badgeUrl}
+## Developer Profile
+![image]${data.profileImg}
 
 `;
 }
