@@ -2,7 +2,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 let api = require("./utils/api.js");
 let generateMD = require("./utils/generateMarkdown.js");
-const axios = require("axios");
 
 const questions = [
   {
@@ -44,32 +43,38 @@ const questions = [
     type: "input",
     message:
       "What does the user need to know about using this project? To make an unordered list, place a * before each point you want to make ex * this is a point. To make an ordered list, place a number before your points ex. 1. this is a point 2. this is a point"
-  },
+    default: "N/A"
+    },
   {
     name: "imageUrl",
     type: "input",
     message: "Please insert an image/gif/video demo link for your project."
+    default: "N/A"
   },
   {
     name: "altImage",
     type: "input",
     message: "Press include a description for users that cannot view images"
+    default: "N/A"
   },
   {
     name: "License",
     type: "input",
     message:
       "What kind of license(s) does your project need? Separate with a comma if more than one"
+    default: "N/A"
   },
   {
     name: "Contributions",
     type: "input",
     message: "Please insert any criteria for contributing to this project"
+    default: "N/A"
   },
   {
     name: "badgeUrl",
     type: "input",
     message: "Please insert a url link for a badge you would like to include."
+    default: "N/A"
   }
 ];
 
@@ -77,24 +82,20 @@ function init() {
   inquirer.prompt(questions).then(function(answers) {
     console.log("=======================");
     console.log(answers);
-    console.log("=======================");
-    console.log(answers);
     //api call info goes here??
     var username = answers.username;
     api.getUser(username);
-    // let axios = profileImg;
 
     //generate markdown
     let readmeText = generateMD(answers);
-    ///////////////let readmeText = `${generateMD(answers)}${axios}`;
     console.log("=======================");
     console.log(readmeText);
     console.log("=======================");
 
-    fs.appendFile("test.md", readmeText, function(err) {
+    fs.appendFile("sample.md", readmeText, function(err) {
       if (err) throw err;
     });
-    console.log("Success!");
+    console.log("Markdown has been generated successfully!");
   });
 }
 

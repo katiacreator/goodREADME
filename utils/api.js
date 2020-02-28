@@ -7,8 +7,15 @@ const api = {
     axios
       .get(queryUrl)
       .then(function(response) {
-        console.log(response.data.avatar_url);
-        return response.data.avatar_url;
+        console.log(profileImg, userEmail);
+        return response.data.avatar_url, response.data.email;
+        // if statement for email if they don't have one goes here?????
+        //Pseudocode
+        /*if (response.data.email === null) {
+          ???????
+      } else {
+          userEmail = ????
+      }*/
       })
       .catch(err => console.log(err));
   }

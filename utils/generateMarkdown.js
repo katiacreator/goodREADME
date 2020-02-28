@@ -1,7 +1,7 @@
 function generateMarkdown(data) {
   return `
 # ${data.ProjectTitle}
-### [(${data.deployedUrl})]${data.deployedUrl}
+### [${data.ProjectTitle}](${data.deployedUrl})
 ---
 ## What Does This Project Do?
 ### ${data.Description}
@@ -18,9 +18,10 @@ function generateMarkdown(data) {
 ### ${data.License}
 ## Contributions to this Project
 ### ${data.Contributions}
-![image]${data.badgeUrl}
-## Developer Profile
-![image]${data.profileImg}
+![Badge](${data.badgeUrl})
+## Questions
+![image](${data.profileImg})
+### If you would like to discuss this project or to learn more, please contact ${data.username} via email here: ${data.email}
 
 `;
 }
