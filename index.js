@@ -19,7 +19,7 @@ const questions = [
     type: "input",
     message:
       "Please insert a link for your deployed project. Press enter if not ready for deployment",
-    default: ""
+    default: "N/A"
   },
   {
     name: "Description",
@@ -85,29 +85,24 @@ function init() {
     //api call info goes here??
     var username = answers.username;
     api.getUser(username).then(function(response) {
-      console.log(response.data.email);
-      //   // if statement for email if they don't have one goes here?????
-      //   //Pseudocode
-      var email;
-      if (response.data.email) {
-        email = response.data.email;
-      } else {
-        email = "no email provided";
-      }
-      return response.data.avatar_url, email;
-    });
-    // let profileImg = response.data.avatar_url;
-    // let userEmail = response.data.email;
-    //generate markdown
-    let readmeText = generateMD(answers);
-    console.log("=======================");
-    console.log(readmeText);
-    console.log("=======================");
+      console.log(response.data);
+      let user = {
+        profileImg: data.avatar_url,
+        userEmail: data.email,
+        answers: answers
+      };
 
-    fs.appendFile("sample.md", readmeText, function(err) {
-      if (err) throw err;
+      //generate markdown
+      let readmeText = generateMD(user);
+      console.log("=======================");
+      console.log(readmeText);
+      console.log("=======================");
+
+      fs.appendFile("sample.md", readmeText, function(err) {
+        if (err) throw err;
+      });
+      console.log("Markdown has been generated successfully!");
     });
-    console.log("Markdown has been generated successfully!");
   });
 }
 
