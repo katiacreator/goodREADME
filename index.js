@@ -85,25 +85,21 @@ function init() {
     //api call info goes here??
     var username = answers.username;
     api.getUser(username).then(function(response) {
-      let user = {
-        profileImg: response.data.avatar_url,
-        userEmail: response.data.email,
-        answers: answers
-      };
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-      console.log(user);
-      console.log("DDDDDDDDDDDDDDDDDDD");
-      console.log(user.profileImg, user.userEmail, user.answers);
+      console.log(response.data);
+      let profileImg = response.avatar_url;
+      let userEmail;
+      if (response.email !== null) {
+        userEmail = response.email;
+      } else {
+        userEmail = response.blog;
+      }
       //generate markdown
-      let readmeText = generateMD(user);
-      console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-      console.log(readmeText);
-      console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-
-      fs.appendFile("sample.md", readmeText, function(err) {
+      let readmeText = generateMD(answers, profileImg, userEmail);
+      fs.appendFile("goodREADME.md", readmeText, function(err) {
         if (err) throw err;
       });
       console.log("Markdown has been generated successfully!");
+      d;
     });
   });
 }

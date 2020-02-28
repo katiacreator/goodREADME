@@ -1,28 +1,27 @@
-function generateMarkdown(data) {
+function generateMarkdown(data, profileImg, userEmail) {
   return `
-# ${data.answers.ProjectTitle}
-### [${data.answers.ProjectTitle}](${data.answers.deployedUrl})
+# ${data.ProjectTitle}
+### [${data.ProjectTitle}](${data.deployedUrl})
 ---
 ## What Does This Project Do?
-### ${data.answers.Description}
+### ${data.Description}
 ## Installation Info to Run This Project
-### Enter ${data.answers.Dependencies} in command line
+### Enter ${data.Dependencies} in command line
 ## How to Run Tests For This Project?
-### Enter ${data.answers.Tests} in command line
+### Enter ${data.Tests} in command line
 ## Tips For Using This Project
-### ${data.answers.Usage}
+### ${data.Usage}
 ## Project Demo
-![Image](${data.answers.imageUrl})
-### ${data.answers.altImage}
+![Image](${data.imageUrl})
+### ${data.altImage}
 ## License(s)
-### ${data.answers.License}
+### ${data.License}
 ## Contributions to this Project
-### ${data.answers.Contributions}
-![Badge](${data.answers.badgeUrl})
+### ${data.Contributions}
+![Badge](${data.badgeUrl})
 ## Questions
-![image](${data.user.profileImg})
-### If you would like to discuss this project or to learn more, please contact ${data.answers.username} at ${data.user.userEmail}
-
+<img src = "${profileImg}" alt = "user profile picture" width = "150"/>
+### Feel free to contact ${data.username} at ${userEmail}.
 `;
 }
 
