@@ -85,18 +85,20 @@ function init() {
     //api call info goes here??
     var username = answers.username;
     api.getUser(username).then(function(response) {
-      console.log(response.data);
       let user = {
-        profileImg: data.avatar_url,
-        userEmail: data.email,
+        profileImg: response.data.avatar_url,
+        userEmail: response.data.email,
         answers: answers
       };
-
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+      console.log(user);
+      console.log("DDDDDDDDDDDDDDDDDDD");
+      console.log(user.profileImg, user.userEmail, user.answers);
       //generate markdown
       let readmeText = generateMD(user);
-      console.log("=======================");
+      console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB");
       console.log(readmeText);
-      console.log("=======================");
+      console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
 
       fs.appendFile("sample.md", readmeText, function(err) {
         if (err) throw err;
