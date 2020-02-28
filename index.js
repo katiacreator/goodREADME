@@ -42,38 +42,38 @@ const questions = [
     name: "Usage",
     type: "input",
     message:
-      "What does the user need to know about using this project? To make an unordered list, place a * before each point you want to make ex * this is a point. To make an ordered list, place a number before your points ex. 1. this is a point 2. this is a point"
+      "What does the user need to know about using this project? To make an unordered list, place a * before each point you want to make ex * this is a point. To make an ordered list, place a number before your points ex. 1. this is a point 2. this is a point",
     default: "N/A"
-    },
+  },
   {
     name: "imageUrl",
     type: "input",
-    message: "Please insert an image/gif/video demo link for your project."
+    message: "Please insert an image/gif/video demo link for your project.",
     default: "N/A"
   },
   {
     name: "altImage",
     type: "input",
-    message: "Press include a description for users that cannot view images"
+    message: "Press include a description for users that cannot view images",
     default: "N/A"
   },
   {
     name: "License",
     type: "input",
     message:
-      "What kind of license(s) does your project need? Separate with a comma if more than one"
+      "What kind of license(s) does your project need? Separate with a comma if more than one",
     default: "N/A"
   },
   {
     name: "Contributions",
     type: "input",
-    message: "Please insert any criteria for contributing to this project"
+    message: "Please insert any criteria for contributing to this project",
     default: "N/A"
   },
   {
     name: "badgeUrl",
     type: "input",
-    message: "Please insert a url link for a badge you would like to include."
+    message: "Please insert a url link for a badge you would like to include.",
     default: "N/A"
   }
 ];
@@ -84,8 +84,20 @@ function init() {
     console.log(answers);
     //api call info goes here??
     var username = answers.username;
-    api.getUser(username);
-
+    api.getUser(username).then(function(response) {
+      console.log(response.data.email);
+      //   // if statement for email if they don't have one goes here?????
+      //   //Pseudocode
+      var email;
+      if (response.data.email) {
+        email = response.data.email;
+      } else {
+        email = "no email provided";
+      }
+      return response.data.avatar_url, email;
+    });
+    // let profileImg = response.data.avatar_url;
+    // let userEmail = response.data.email;
     //generate markdown
     let readmeText = generateMD(answers);
     console.log("=======================");

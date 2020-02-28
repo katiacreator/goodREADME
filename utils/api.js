@@ -3,21 +3,23 @@ const api = {
   getUser(username) {
     const queryUrl = `https://api.github.com/users/${username}`;
     console.log(queryUrl);
-    // AXIOS GOES HERE????
-    axios
-      .get(queryUrl)
-      .then(function(response) {
-        console.log(profileImg, userEmail);
-        return response.data.avatar_url, response.data.email;
-        // if statement for email if they don't have one goes here?????
-        //Pseudocode
-        /*if (response.data.email === null) {
-          ???????
-      } else {
-          userEmail = ????
-      }*/
-      })
-      .catch(err => console.log(err));
+    return (
+      axios
+        .get(queryUrl)
+        // .then(function(response) {
+        //   console.log(profileImg, userEmail);
+        //   // if statement for email if they don't have one goes here?????
+        //   //Pseudocode
+        //   var email;
+        //   if (response.data.email) {
+        //     email = response.data.email;
+        //   } else {
+        //     email = "no email provided";
+        //   }
+        //   return response.data.avatar_url, email;
+        // })
+        .catch(err => console.log(err))
+    );
   }
 };
 module.exports = api;
