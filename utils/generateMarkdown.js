@@ -5,23 +5,26 @@ function generateMarkdown(data, profileImg, userEmail) {
 ---
 ## What Does This Project Do?
 ### ${data.Description}
-## Installation Info to Run This Project
-### Enter ${data.Dependencies} in command line
+## Installation Information to Run This Project
+### ${data.Dependencies}
 ## How to Run Tests For This Project?
-### Enter ${data.Tests} in command line
-## Tips For Using This Project
+### ${data.Tests}
+## Usage Notes
 ### ${data.Usage}
-## Project Demo
-![Image](${data.imageUrl})
+## Project Demo Visuals
+## ![Image](${data.imageUrl})
 ### ${data.altImage}
 ## License(s)
 ### ${data.License}
 ## Contributions to this Project
 ### ${data.Contributions}
-![Badge](${data.badgeUrl})
+## Languages and Tools Used
+### ${data.tools}
+## ![Badge](${data.badgeUrl})
 ## Questions
-<img src = "${profileImg}" alt = "user profile picture" width = "150"/>
-### Feel free to contact ${data.username} at ${userEmail}.
+## <img src = "${profileImg}" alt = "user profile picture" width = "150"/>
+### Feel free to contact ${data.fullname} at ${userEmail}.
+
 `;
 }
 

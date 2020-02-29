@@ -7,7 +7,12 @@ const questions = [
   {
     name: "username",
     type: "input",
-    message: "What is your Github username?"
+    message: "Please enter your Github username."
+  },
+  {
+    name: "fullname",
+    type: "input",
+    message: "Please enter your first and last name."
   },
   {
     name: "ProjectTitle",
@@ -19,12 +24,12 @@ const questions = [
     type: "input",
     message:
       "Please insert a link for your deployed project. Press enter if not ready for deployment",
-    default: "N/A"
+    default: "Link to deployed app coming soon!"
   },
   {
     name: "Description",
     type: "input",
-    message: "Please describe this project briefly (1-2 sentences)."
+    message: "Please describe this project briefly (2-3 sentences)."
   },
   {
     name: "Dependencies",
@@ -41,51 +46,54 @@ const questions = [
   {
     name: "Usage",
     type: "input",
-    message:
-      "What does the user need to know about using this project? To make an unordered list, place a * before each point you want to make ex * this is a point. To make an ordered list, place a number before your points ex. 1. this is a point 2. this is a point",
+    message: "What does the user need to know about using this project?",
     default: "N/A"
   },
   {
     name: "imageUrl",
     type: "input",
     message: "Please insert an image/gif/video demo link for your project.",
-    default: "N/A"
+    default: "Video Demo Coming Soon!"
   },
   {
     name: "altImage",
     type: "input",
-    message: "Press include a description for users that cannot view images",
-    default: "N/A"
+    message:
+      "Please include a description of the above image for users that cannot view images.",
+    default: ""
   },
   {
     name: "License",
     type: "input",
-    message:
-      "What kind of license(s) does your project need? Separate with a comma if more than one",
+    message: "What kind of license(s) does your project include?",
     default: "N/A"
   },
   {
     name: "Contributions",
     type: "input",
-    message: "Please insert any criteria for contributing to this project",
-    default: "N/A"
+    message: "Please insert any criteria for contributing to this project.",
+    default: "None at this time."
+  },
+  {
+    name: "tools",
+    type: "input",
+    message:
+      "Please describe the languages and other tools used to create this project",
+    default: "HTML5, CSS3, Javascript"
   },
   {
     name: "badgeUrl",
     type: "input",
-    message: "Please insert a url link for a badge you would like to include.",
+    message:
+      "Please insert a url link for any badges you would like to include for this project.",
     default: "N/A"
   }
 ];
 
 function init() {
   inquirer.prompt(questions).then(function(answers) {
-    console.log("=======================");
-    console.log(answers);
-    //api call info goes here??
     var username = answers.username;
     api.getUser(username).then(function(response) {
-      console.log(response.data);
       let profileImg = response.avatar_url;
       let userEmail;
       if (response.email !== null) {
@@ -93,13 +101,12 @@ function init() {
       } else {
         userEmail = response.blog;
       }
-      //generate markdown
       let readmeText = generateMD(answers, profileImg, userEmail);
+      console.log(readmeText);
       fs.appendFile("goodREADME.md", readmeText, function(err) {
         if (err) throw err;
       });
       console.log("Markdown has been generated successfully!");
-      d;
     });
   });
 }
