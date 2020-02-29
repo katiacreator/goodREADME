@@ -11,9 +11,6 @@ function generateMarkdown(data, profileImg, userEmail) {
 ### ${data.Tests}
 ## Usage Notes
 ### ${data.Usage}
-## Project Demo Visuals
-## ![Image](${data.imageUrl})
-### ${data.altImage}
 ## License(s)
 ### ${data.License}
 ## Contributions to this Project

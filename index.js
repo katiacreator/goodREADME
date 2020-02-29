@@ -47,20 +47,7 @@ const questions = [
     name: "Usage",
     type: "input",
     message: "What does the user need to know about using this project?",
-    default: "N/A"
-  },
-  {
-    name: "imageUrl",
-    type: "input",
-    message: "Please insert an image/gif/video demo link for your project.",
-    default: "Video Demo Coming Soon!"
-  },
-  {
-    name: "altImage",
-    type: "input",
-    message:
-      "Please include a description of the above image for users that cannot view images.",
-    default: ""
+    default: "Stay tuned for version 2.0 coming soon!"
   },
   {
     name: "License",
