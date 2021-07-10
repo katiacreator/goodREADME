@@ -1,8 +1,3 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-let api = require("./utils/api.js");
-let generateMD = require("./utils/generateMarkdown.js");
-
 const questions = [
   {
     name: "username",
@@ -32,6 +27,31 @@ const questions = [
     message: "Please describe this project briefly."
   },
   {
+    name: "Motivation",
+    type: "input",
+    message: "Please describe your motivation for building this application."
+  },
+  {
+    name: "Use Case",
+    type: "input",
+    message: "Please describe some use cases for this project (where applicable)."
+  },
+  {
+    name: "Wireframes",
+    type: "input",
+    message: "Please submit links to your wireframes or include images here."
+  },
+  {
+    name: "Final Project Screenshots",
+    type: "input",
+    message: "Please include snapshots of your final project as a preview."
+  },
+  {
+    name: "Pseudocode",
+    type: "input",
+    message: "Please include pseudocode for this project if you'd like to showcase to employers your thought process for building this application."
+  },
+  {
     name: "Dependencies",
     type: "input",
     message: "how does the user run installations for dependencies?",
@@ -44,9 +64,15 @@ const questions = [
     default: "N/A"
   },
   {
-    name: "Usage Notes",
+    name: "Usage",
     type: "input",
     message: "What does the user need to know about using this project?",
+    default: "Stay tuned for version 2.0 coming soon!"
+  },
+  {
+    name: "Stretch Goals",
+    type: "input",
+    message: "What does the developer envision for the improved version of this application?",
     default: "Stay tuned for version 2.0 coming soon!"
   },
   {
@@ -76,26 +102,3 @@ const questions = [
     default: "N/A"
   }
 ];
-
-function init() {
-  inquirer.prompt(questions).then(function(answers) {
-    var username = answers.username;
-    api.getUser(username).then(function(response) {
-      let profileImg = response.avatar_url;
-      let userEmail;
-      if (response.email !== null) {
-        userEmail = response.email;
-      } else {
-        userEmail = response.blog;
-      }
-      let readmeText = generateMD(answers, profileImg, userEmail);
-      console.log(readmeText);
-      fs.appendFile("goodREADME.md", readmeText, function(err) {
-        if (err) throw err;
-      });
-      console.log("Markdown has been generated successfully!");
-    });
-  });
-}
-
-init();
