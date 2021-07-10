@@ -29,7 +29,32 @@ const questions = [
   {
     name: "Description",
     type: "input",
-    message: "Please describe this project briefly (2-3 sentences)."
+    message: "Please describe this project briefly."
+  },
+  {
+    name: "Motivation",
+    type: "input",
+    message: "Please describe your motivation for building this application."
+  },
+  {
+    name: "Use Case",
+    type: "input",
+    message: "Please describe some use cases for this project (where applicable)."
+  },
+  {
+    name: "Wireframes",
+    type: "input",
+    message: "Please submit links to your wireframes or include images here."
+  },
+  {
+    name: "Final Project Screenshots",
+    type: "input",
+    message: "Please include snapshots of your final project as a preview."
+  },
+  {
+    name: "Pseudocode",
+    type: "input",
+    message: "Please include pseudocode for this project if you'd like to showcase to employers your thought process for building this application."
   },
   {
     name: "Dependencies",
@@ -41,12 +66,18 @@ const questions = [
     name: "Tests",
     type: "input",
     message: "how does the user run tests?",
-    default: "npm test"
+    default: "N/A"
   },
   {
     name: "Usage",
     type: "input",
     message: "What does the user need to know about using this project?",
+    default: "Stay tuned for version 2.0 coming soon!"
+  },
+  {
+    name: "Stretch Goals",
+    type: "input",
+    message: "What does the developer envision for the improved version of this application?",
     default: "Stay tuned for version 2.0 coming soon!"
   },
   {
